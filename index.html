@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Digital magazine - A digital simulation of a magazine with flipbook visualization"
+    />
+
+    <!-- SEO and Social Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="Digital Magazine" />
+    <meta
+      property="og:description"
+      content="A digital simulation of a magazine with flipbook visualization"
+    />
+    <meta property="og:image" content="/image/000.png" />
+    <meta property="og:url" content="https://banner.primusckabuo.dev" />
+
+    <title>Digital Magazine</title>
+    <link rel="shortcut icon" href="/image/000.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="/css/basic.css" />
+    <link rel="stylesheet" href="/css/fullscreen.css" />
+    <link rel="stylesheet" href="/css/toast.css" />
+
+    <!-- Component Scripts -->
+    <script src="/js/utils/EventEmitter.js"></script>
+    <script src="/js/components/LoadingIndicator.js"></script>
+    <script src="/js/components/MagazineViewer.js"></script>
+    <script src="/js/components/NavigationCtrls.js"></script>
+    <script src="/js/components/FullscreenManager.js"></script>
+    <script src="/js/components/MagazineApp.js"></script>
+    <script src="/js/components/DeviceManager.js"></script>
+    <script src="/js/components/ImagePreloader.js"></script>
+
+    <!-- External Dependencies -->
+    <script src="/js/turn.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/modernizr.2.5.3.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/fd15c746ed.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div id="magazine-app"></div>
+    <!-- Navigation Controls Footer -->
+    <footer class="bottom">
+      <div class="content-btm">
+        <div>
+          <img
+            class="logo-img"
+            src="/image/000.png"
+            alt="Love & Honor"
+            title="Logo"
+          />
+        </div>
+        <nav class="controls" aria-label="Magazine navigation">
+          <button
+            id="toFirst"
+            class="ctrl-icons"
+            title="First Page"
+            aria-label="Go to first page"
+          >
+            <i class="fas fa-backward" aria-hidden="true"></i>
+          </button>
+          <button
+            id="prev-fa"
+            class="ctrl-icons"
+            title="Previous Page"
+            aria-label="Go to previous page"
+          >
+            <i class="fas fa-arrow-left" aria-hidden="true"></i>
+          </button>
+          <div class="pg-input">
+            <label for="pageNum">Page: </label>
+            <input
+              type="number"
+              id="pageNum"
+              min="1"
+              value="1"
+              aria-label="Current page number"
+            />
+            <span class="page-separator">/</span>
+            <span id="pageTot" aria-label="Total pages">26</span>
+          </div>
+          <button
+            id="next-fa"
+            class="ctrl-icons"
+            title="Next Page"
+            aria-label="Go to next page"
+          >
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </button>
+          <button
+            id="toLast"
+            class="ctrl-icons"
+            title="Last Page"
+            aria-label="Go to last page"
+          >
+            <i class="fas fa-forward" aria-hidden="true"></i>
+          </button>
+          <button
+            id="expandScr"
+            onclick="toggleFullscreen()"
+            class="ctrl-icons"
+            title="Toggle Fullscreen"
+            aria-label="Toggle fullscreen mode"
+          >
+            <i class="fas fa-expand-alt" aria-hidden="true"></i>
+          </button>
+        </nav>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const app = new MagazineApp();
+        document.getElementById("magazine-app").appendChild(app.element);
+      });
+    </script>
+  </body>
+</html>

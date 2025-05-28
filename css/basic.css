@@ -1,0 +1,386 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background-color: #ffffff;
+  width: 100vw;
+  height: 100%;
+}
+
+.flipbook-viewport {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow:visible;
+}
+
+.flipbook-viewport .flipbook {
+  width: 100%;
+  height: 100%;
+  top: -17px;
+}
+
+.flipbook-viewport .page {
+  width: 461px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.flipbook .page {
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -ms-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.flipbook-viewport .page img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0;
+}
+
+.flipbook-viewport .shadow {
+  transition: transform 0.5s;
+  -webkit-transition: -webkit-box-shadow 0.5s;
+  -moz-transition: -moz-box-shadow 0.5s;
+  -o-transition: -webkit-box-shadow 0.5s;
+  -ms-transition: -ms-box-shadow 0.5s;
+
+  -webkit-box-shadow: 0 0 20px #ccc;
+  -moz-box-shadow: 0 0 20px #ccc;
+  -o-box-shadow: 0 0 20px #ccc;
+  -ms-box-shadow: 0 0 20px #ccc;
+  box-shadow: 0 0 20px #ccc;
+}
+
+@-webkit-keyframes reverseRotataZ {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(-360deg);
+  }
+}
+@-webkit-keyframes rotataZ {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+
+.pull-left {
+  position: absolute;
+  bottom: 5%;
+  right: 0;
+  overflow: hidden;
+  width: 240px;
+  height: 200px;
+} /*  |xGv00|e69d3d10a97baed58b34702fd0b01ff5 */
+
+.loadinner {
+  position: absolute;
+  width: 76%;
+  height: 100%;
+  margin-left: -38%;
+  left: 50%;
+  text-align: center;
+  font-size: 11px;
+  line-height: 20px;
+}
+.graph {
+  background: #6c6c6c;
+  width: 70%;
+  margin: 10px auto 0 auto;
+}
+#bar {
+  display: block;
+  background: #f1f1f1;
+  height: 3px;
+  width: 10px;
+}
+#diary {
+  width: 70%;
+  margin: 0 auto;
+}
+#chupin {
+  width: 100%;
+  position: absolute;
+  bottom: 80px;
+}
+#cpright {
+  position: absolute;
+  bottom: 50px;
+  color: #757575;
+  font-size: 9px;
+  text-align: center;
+  width: 100%;
+  letter-spacing: -1px;
+  word-spacing: -1px;
+}
+#btns {
+  position: absolute;
+  left: 50%;
+  top: 15%;
+  width: 44%;
+  margin: 0 0 0 -22%;
+  z-index: 999;
+}
+#btns button,
+#btns a {
+  line-height: 36px;
+  background: #1ea5d2;
+  border: 1px solid #fcfcfc;
+  color: #404040;
+  width: 100%;
+  height: 36px;
+  font-size: 17px;
+  font-family: "微软雅黑";
+  display: block;
+  text-decoration: none;
+  text-align: center;
+}
+
+.shade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(67, 46, 85, 0.377);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.loaded .shade {
+  display: none;
+}
+
+/*环形进度条*/
+
+.loadingImg {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 1%;
+  left: 42%;
+}
+
+@-webkit-keyframes sk-circleFadeDelay {
+  0%,
+  39%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes sk-circleFadeDelay {
+  0%,
+  39%,
+  100% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+}
+
+/*进度数字*/
+.number {
+  width: 15%;
+  height: 10%;
+  position: fixed;
+  top: 47%;
+  left: 45%;
+  z-index: 1000009;
+  color: #ffffff;
+  /* border: 1px solid red; */
+}
+
+/* bottom bar */
+.bottom {
+  width: 100%;
+  height: 45px;
+  position: fixed;
+  display: flex;
+  margin-bottom: 0;
+  background-color: #4d4d4d;
+  background-size: cover;
+  bottom: 0;
+  z-index: 99999;
+}
+.content-btm {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controls {
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.logo-img {
+  width: 45px;
+  height: 42px;
+  object-fit: cover;
+  margin-top: 3px;
+  margin-left: 2px;
+}
+
+.ctrl-icons {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  display: flex;
+  border: 1px solid gray;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctrl-icons i {
+  font-size: 1rem;
+  padding: 6px;
+  color: wheat;
+}
+
+.pg-input {
+  margin: 5px;
+  padding: 10px;
+  height: 30px;
+  border: thin;
+  border-style: solid;
+  border-color: gray;
+  color: #ccc;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pg-input input {
+  width: 40px;
+  height: 20px;
+}
+
+.pg-input span {
+  color: #fff;
+}
+
+/*弹出窗口*/
+.g-plugin-confirm {
+  position: fixed;
+  z-index: 9999999999999;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  /*background: rgba(0, 0, 0, 0.1);*/
+  background-color: rgba(0, 0, 0, 0.35);
+  justify-content: center;
+  align-items: center;
+}
+/* line 397, global.sass */
+.g-plugin-confirm > div {
+  background: rgba(255, 255, 255, 0.9);
+  width: 80%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 402, global.sass */
+.g-plugin-confirm > div > div:nth-child(1) {
+  text-align: center;
+  color: black;
+  padding: 22px;
+}
+/* line 406, global.sass */
+.g-plugin-confirm > div > div:nth-child(2) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-top: 1px solid #cbcbd1;
+}
+/* line 409, global.sass */
+.g-plugin-confirm > div > div:nth-child(2) a {
+  -moz-box-flex: 1;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-right: 1px solid #cbcbd1;
+  text-align: center;
+  padding: 8px 0;
+  color: #3bbec0;
+  font-size: 22px;
+  text-decoration: none;
+}
+/* line 416, global.sass */
+.g-plugin-confirm > div > div:nth-child(2) a:last-child {
+  border-right: 0;
+}
+
+@media screen and (max-width: 440px) {
+  /* bottom bar */
+  .ctrl-icons {
+    width: 22px;
+    height: 22px;
+    margin: 2px;
+    display: flex;
+    border: 0.5px solid gray;
+  }
+
+  .ctrl-icons i {
+    font-size: 1rem;
+    padding: 2px;
+  }
+  #expandScr {
+    display: none;
+  }
+  #toFirst {
+    display: none;
+  }
+  #toLast {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .flipbook-viewport .container {
+    width: 95%;
+    height: 80vh;
+  }
+  
+  /* For mobile, you might want to switch to single page display */
+  .flipbook {
+    width: 100% !important;
+  }
+}
+

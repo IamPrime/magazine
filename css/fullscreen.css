@@ -1,0 +1,36 @@
+/* Fullscreen styles */
+.flipbook-viewport.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 2000;
+}
+
+.fullscreen .container {
+    width: 100%;
+    height: 100%;
+}
+
+.fullscreen .flipbook {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+/* Hide shade when in fullscreen */
+.fullscreen-active .shade {
+    display: none;
+}
+
+/* Adjust controls in fullscreen mode */
+.fullscreen-active .bottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.5);
+}
